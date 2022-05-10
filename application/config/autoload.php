@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+defined('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 | -------------------------------------------------------------------
@@ -58,7 +62,11 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
+<<<<<<< HEAD
 $autoload['libraries'] = array('form_validation','database','email','session','upload');
+=======
+$autoload['libraries'] = array('database', 'session');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +97,11 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
+<<<<<<< HEAD
 $autoload['helper'] = array('url','form');
+=======
+$autoload['helper'] = array('url', 'form');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 | -------------------------------------------------------------------
@@ -132,6 +144,10 @@ $autoload['language'] = array();
 |
 |	$autoload['model'] = array('first_model' => 'first');
 */
+<<<<<<< HEAD
 $autoload['model'] = array();
 
 ?>
+=======
+$autoload['model'] = array('Auth_model');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a

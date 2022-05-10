@@ -89,7 +89,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<p>The corresponding controller for this page is found at:</p>
 		<code>application/controllers/Welcome.php</code>
+<<<<<<< HEAD
 		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="https://codeigniter.com/userguide3/index.html">User Guide</a>.</p>
+=======
+
+		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="userguide3/">User Guide</a>.</p>
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>

@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 /**
  * CodeIgniter
  *
@@ -36,7 +40,11 @@
  * @since	Version 1.0.0
  * @filesource
  */
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+defined('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /**
  * Config Class
@@ -49,7 +57,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/userguide3/libraries/config.html
  */
+<<<<<<< HEAD
 class CI_Config {
+=======
+class CI_Config
+{
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 	/**
 	 * List of all loaded config values
@@ -84,6 +97,7 @@ class CI_Config {
 	 */
 	public function __construct()
 	{
+<<<<<<< HEAD
 		$this->config =& get_config();
 
 		// Set the base_url automatically if none was provided
@@ -105,6 +119,22 @@ class CI_Config {
 			}
 			else
 			{
+=======
+		$this->config = &get_config();
+
+		// Set the base_url automatically if none was provided
+		if (empty($this->config['base_url'])) {
+			if (isset($_SERVER['SERVER_ADDR'])) {
+				if (strpos($_SERVER['SERVER_ADDR'], ':') !== FALSE) {
+					$server_addr = '[' . $_SERVER['SERVER_ADDR'] . ']';
+				} else {
+					$server_addr = $_SERVER['SERVER_ADDR'];
+				}
+
+				$base_url = (is_https() ? 'https' : 'http') . '://' . $server_addr
+					. substr($_SERVER['SCRIPT_NAME'], 0, strpos($_SERVER['SCRIPT_NAME'], basename($_SERVER['SCRIPT_FILENAME'])));
+			} else {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 				$base_url = 'http://localhost/';
 			}
 
@@ -129,6 +159,7 @@ class CI_Config {
 		$file = ($file === '') ? 'config' : str_replace('.php', '', $file);
 		$loaded = FALSE;
 
+<<<<<<< HEAD
 		foreach ($this->_config_paths as $path)
 		{
 			foreach (array($file, ENVIRONMENT.DIRECTORY_SEPARATOR.$file) as $location)
@@ -141,11 +172,22 @@ class CI_Config {
 
 				if ( ! file_exists($file_path))
 				{
+=======
+		foreach ($this->_config_paths as $path) {
+			foreach (array($file, ENVIRONMENT . DIRECTORY_SEPARATOR . $file) as $location) {
+				$file_path = $path . 'config/' . $location . '.php';
+				if (in_array($file_path, $this->is_loaded, TRUE)) {
+					return TRUE;
+				}
+
+				if (!file_exists($file_path)) {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 					continue;
 				}
 
 				include($file_path);
 
+<<<<<<< HEAD
 				if ( ! isset($config) OR ! is_array($config))
 				{
 					if ($fail_gracefully === TRUE)
@@ -164,12 +206,28 @@ class CI_Config {
 				}
 				else
 				{
+=======
+				if (!isset($config) or !is_array($config)) {
+					if ($fail_gracefully === TRUE) {
+						return FALSE;
+					}
+
+					show_error('Your ' . $file_path . ' file does not appear to contain a valid configuration array.');
+				}
+
+				if ($use_sections === TRUE) {
+					$this->config[$file] = isset($this->config[$file])
+						? array_merge($this->config[$file], $config)
+						: $config;
+				} else {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 					$this->config = array_merge($this->config, $config);
 				}
 
 				$this->is_loaded[] = $file_path;
 				$config = NULL;
 				$loaded = TRUE;
+<<<<<<< HEAD
 				log_message('debug', 'Config file loaded: '.$file_path);
 			}
 		}
@@ -184,6 +242,19 @@ class CI_Config {
 		}
 
 		show_error('The configuration file '.$file.'.php does not exist.');
+=======
+				log_message('debug', 'Config file loaded: ' . $file_path);
+			}
+		}
+
+		if ($loaded === TRUE) {
+			return TRUE;
+		} elseif ($fail_gracefully === TRUE) {
+			return FALSE;
+		}
+
+		show_error('The configuration file ' . $file . '.php does not exist.');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	}
 
 	// --------------------------------------------------------------------
@@ -197,8 +268,12 @@ class CI_Config {
 	 */
 	public function item($item, $index = '')
 	{
+<<<<<<< HEAD
 		if ($index == '')
 		{
+=======
+		if ($index == '') {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 			return isset($this->config[$item]) ? $this->config[$item] : NULL;
 		}
 
@@ -215,6 +290,7 @@ class CI_Config {
 	 */
 	public function slash_item($item)
 	{
+<<<<<<< HEAD
 		if ( ! isset($this->config[$item]))
 		{
 			return NULL;
@@ -225,6 +301,15 @@ class CI_Config {
 		}
 
 		return rtrim($this->config[$item], '/').'/';
+=======
+		if (!isset($this->config[$item])) {
+			return NULL;
+		} elseif (trim($this->config[$item]) === '') {
+			return '';
+		}
+
+		return rtrim($this->config[$item], '/') . '/';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	}
 
 	// --------------------------------------------------------------------
@@ -244,6 +329,7 @@ class CI_Config {
 	{
 		$base_url = $this->slash_item('base_url');
 
+<<<<<<< HEAD
 		if (isset($protocol))
 		{
 			// For protocol-relative links
@@ -260,10 +346,24 @@ class CI_Config {
 		if (empty($uri))
 		{
 			return $base_url.$this->item('index_page');
+=======
+		if (isset($protocol)) {
+			// For protocol-relative links
+			if ($protocol === '') {
+				$base_url = substr($base_url, strpos($base_url, '//'));
+			} else {
+				$base_url = $protocol . substr($base_url, strpos($base_url, '://'));
+			}
+		}
+
+		if (empty($uri)) {
+			return $base_url . $this->item('index_page');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 		}
 
 		$uri = $this->_uri_string($uri);
 
+<<<<<<< HEAD
 		if ($this->item('enable_query_strings') === FALSE)
 		{
 			$suffix = isset($this->config['url_suffix']) ? $this->config['url_suffix'] : '';
@@ -276,10 +376,20 @@ class CI_Config {
 				}
 				else
 				{
+=======
+		if ($this->item('enable_query_strings') === FALSE) {
+			$suffix = isset($this->config['url_suffix']) ? $this->config['url_suffix'] : '';
+
+			if ($suffix !== '') {
+				if (($offset = strpos($uri, '?')) !== FALSE) {
+					$uri = substr($uri, 0, $offset) . $suffix . substr($uri, $offset);
+				} else {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 					$uri .= $suffix;
 				}
 			}
 
+<<<<<<< HEAD
 			return $base_url.$this->slash_item('index_page').$uri;
 		}
 		elseif (strpos($uri, '?') === FALSE)
@@ -288,6 +398,14 @@ class CI_Config {
 		}
 
 		return $base_url.$this->item('index_page').$uri;
+=======
+			return $base_url . $this->slash_item('index_page') . $uri;
+		} elseif (strpos($uri, '?') === FALSE) {
+			$uri = '?' . $uri;
+		}
+
+		return $base_url . $this->item('index_page') . $uri;
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	}
 
 	// -------------------------------------------------------------
@@ -307,6 +425,7 @@ class CI_Config {
 	{
 		$base_url = $this->slash_item('base_url');
 
+<<<<<<< HEAD
 		if (isset($protocol))
 		{
 			// For protocol-relative links
@@ -321,6 +440,18 @@ class CI_Config {
 		}
 
 		return $base_url.$this->_uri_string($uri);
+=======
+		if (isset($protocol)) {
+			// For protocol-relative links
+			if ($protocol === '') {
+				$base_url = substr($base_url, strpos($base_url, '//'));
+			} else {
+				$base_url = $protocol . substr($base_url, strpos($base_url, '://'));
+			}
+		}
+
+		return $base_url . $this->_uri_string($uri);
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	}
 
 	// -------------------------------------------------------------
@@ -336,6 +467,7 @@ class CI_Config {
 	 */
 	protected function _uri_string($uri)
 	{
+<<<<<<< HEAD
 		if ($this->item('enable_query_strings') === FALSE)
 		{
 			is_array($uri) && $uri = implode('/', $uri);
@@ -343,6 +475,12 @@ class CI_Config {
 		}
 		elseif (is_array($uri))
 		{
+=======
+		if ($this->item('enable_query_strings') === FALSE) {
+			is_array($uri) && $uri = implode('/', $uri);
+			return ltrim($uri, '/');
+		} elseif (is_array($uri)) {
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 			return http_build_query($uri);
 		}
 
@@ -360,7 +498,11 @@ class CI_Config {
 	public function system_url()
 	{
 		$x = explode('/', preg_replace('|/*(.+?)/*$|', '\\1', BASEPATH));
+<<<<<<< HEAD
 		return $this->slash_item('base_url').end($x).'/';
+=======
+		return $this->slash_item('base_url') . end($x) . '/';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	}
 
 	// --------------------------------------------------------------------
@@ -376,5 +518,8 @@ class CI_Config {
 	{
 		$this->config[$item] = $value;
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 }

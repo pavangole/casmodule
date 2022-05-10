@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+defined('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 | -------------------------------------------------------------------------
@@ -49,7 +53,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+<<<<<<< HEAD
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+=======
+// $route['default_controller'] = 'welcome';
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
+
+// Module A: Login and Register
+$route['login']['GET'] = 'Auth/RegisterController/index';
+$route['login']['POST'] = 'Auth/RegisterController/login';
+// Dashboard
+$route['home']['GET'] = 'Home/HomeController/index';
+$route['apply_leave']['GET'] = 'Leave/LeaveController/index';
+
+//leave
+$route['apply_leave']['POST'] = 'Leave/LeaveController/apply_leave';
+$route['leave_history']['GET'] = 'Leave/LeaveController/leave_history';
+$route['leave_types']['GET'] = 'Leave/LeaveController/leave_types';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a

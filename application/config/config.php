@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+defined('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
+<<<<<<< HEAD
 $config['base_url'] = 'http://localhost/ci3';
+=======
+$config['base_url'] = 'http://localhost/ems-app/';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +43,11 @@ $config['base_url'] = 'http://localhost/ci3';
 | variable so that it is blank.
 |
 */
+<<<<<<< HEAD
 $config['index_page'] = 'index.php';
+=======
+$config['index_page'] = '';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +64,11 @@ $config['index_page'] = 'index.php';
 |
 | WARNING: If you set this to 'PATH_INFO', URIs will always be URL-decoded!
 */
+<<<<<<< HEAD
 $config['uri_protocol']	= 'REQUEST_URI';
+=======
+$config['uri_protocol']    = 'REQUEST_URI';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -78,7 +94,11 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
+<<<<<<< HEAD
 $config['language']	= 'english';
+=======
+$config['language']    = 'english';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -160,7 +180,11 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
+<<<<<<< HEAD
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@';
+=======
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -326,7 +350,11 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/userguide3/libraries/encryption.html
 |
 */
+<<<<<<< HEAD
 $config['encryption_key'] = '';
+=======
+$config['encryption_key'] = '123124113';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------
@@ -408,12 +436,21 @@ $config['sess_regenerate_destroy'] = FALSE;
 |       'cookie_httponly') will also affect sessions.
 |
 */
+<<<<<<< HEAD
 $config['cookie_prefix']	= '';
 $config['cookie_domain']	= '';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;
 $config['cookie_samesite'] 	= 'Lax';
+=======
+$config['cookie_prefix']    = '';
+$config['cookie_domain']    = '';
+$config['cookie_path']        = '/';
+$config['cookie_secure']    = FALSE;
+$config['cookie_httponly']     = FALSE;
+$config['cookie_samesite']     = 'Lax';
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 |--------------------------------------------------------------------------

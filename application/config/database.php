@@ -1,5 +1,9 @@
 <?php
+<<<<<<< HEAD
 defined('BASEPATH') OR exit('No direct script access allowed');
+=======
+defined('BASEPATH') or exit('No direct script access allowed');
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 
 /*
 | -------------------------------------------------------------------
@@ -78,7 +82,11 @@ $db['default'] = array(
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
+<<<<<<< HEAD
 	'database' => 'application',
+=======
+	'database' => 'ems',
+>>>>>>> 496733559d8eb9f9e1e6839214838ae1c6fcf99a
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
